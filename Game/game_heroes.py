@@ -1,6 +1,6 @@
-from Game.weapon_quality import rare, improved
+# from Game.weapon_quality import rare, improved
 from base_classes import Warrior, Weapons
-from game_weapons import Sword, Staff, Knife, Spear, Bow, Crossbow, Axe
+from game_weapons import random_weapon
 from random import *
 import time as t
 
@@ -53,22 +53,59 @@ class Hero(Warrior):
 
     ''' бабло с моба '''
 
+
+
+
     def death_in_battle(self, other):
         self.money += other.money
+        if True:
+            self.weapon = random_weapon()
+            print(f"Ура вам выпало новое оружие{self.weapon}, хотите его забрать? 1-да, 0-нет\n")
+            x = True
+            while x:
+                select_weapon = input()
+                if select_weapon == '1':
+                    self.add_weapon(self.weapon)
+                if select_weapon == '0':
+                    x = False
 
-        self.weapon = Weapons.random_weapon()
+                else:
+                    print("сделайте правильный выбор")
+
 
     def add_weapon(self, another_weapon):
-        if len(self.weapon) < 4:
+        if len(self.weapon) < 2:
             self.weapon.append(another_weapon)
-            return True
+            # return True
+            print(len(self.weapon),self.weapon[0])
         else:
-            print('не можете взять оружие, рюкзак переполнен')
+            print(len(self.weapon))
+            print('Вы не можете взять оружие, рюкзак переполнен')
+            print('Хотите выбросить какое-нибудь оружие? 1-да, 0-нет')
+            # x = True
+            while True:
+                remove_weapons = str(input())
+                if remove_weapons == "1":
+                    print(self.add_weapon(self.weapon))
+                    self.add_weapon(self.weapon)
+                    print('1 if')
+                    print(type(self.weapon))
+                    for i in self.weapon:
+                        print(i)
+                    break
+                if remove_weapons == '0':
+                    # x = False
+                    break
+                else:
+                    print("сделайте правильный выбор")
             return False
 
 
-    # def change_weapon(self):
-    #     if randint(0, 1) == 1:
+c = Hero()
+
+b = random_weapon
+a = Hero.add_weapon(c, b)
+
 
 
 

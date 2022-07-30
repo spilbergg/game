@@ -1,4 +1,4 @@
-from base_classes import Weapons
+# from base_classes import Weapons
 
 rare = {
     'damage': 2,

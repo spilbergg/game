@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
 from random import *
 import time as t
-from game_weapons import Punch,Weapons
+# from game_weapons import Punch
 
 class Warrior(ABC):
     def __init__(self, lvl=1, health=300, name='Unknown', defend=10, money=0):
-        self.weapon = [Punch]
+        self.weapon = []
         self.health = health
         self.name = name
         self.defend = defend

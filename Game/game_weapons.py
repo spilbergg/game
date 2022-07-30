@@ -100,4 +100,5 @@ def random_weapon():
         return weapon
 
 
+default_weapon = Punch()
 c = random_weapon()
